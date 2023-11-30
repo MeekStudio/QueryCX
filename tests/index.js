@@ -1,4 +1,4 @@
-const {Query, Schema} = require("../index.js");
+const {Query} = require("../index.js");
 
 
 const Projects = new Query({
@@ -6,11 +6,7 @@ const Projects = new Query({
     collection: process.env.QUERYCX_COLLECTION
 });
 
-const ProjectSchema = new Schema({
-    username: {type: String, unique: true, index: true},
-    email: {type: String, unique: true, index: true},
-    name: {type: String},
-});
+
 
 Projects.insertOne({
     phone: "321",

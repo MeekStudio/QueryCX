@@ -71,10 +71,4 @@ class Query {
     
 }
 
-class Schema {
-    constructor(schema){
-        this.schema = schema;
-    }
-}
-
-module.exports = { Query, Schema }
+module.exports = { Query }
