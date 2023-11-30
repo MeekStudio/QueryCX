@@ -1,0 +1,22 @@
+{
+  "name": "querycx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./tests/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "@MeekStudio:registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "mongodb": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
