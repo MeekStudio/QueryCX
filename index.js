@@ -23,14 +23,29 @@ class Query {
         }
     }
 
-    async createIndex(field){
-        
-        const options = {unique: true};
+    async countDocuments(filter){
+        const promise = new Promise(((resolve, reject) => {
+            this.collection.countDocuments(filter)
+                .then(resolve)
+                .catch(reject)
 
-        const result = await this.collection.createIndex(field)
-            //.then(resolve)
-            //.catch(reject)
-        console.log("XXXXXX > ", result);
+        }))
+
+        return promise;
+    }
+
+    
+
+    async createIndex(field){
+        const promise = new Promise(((resolve, reject) => {
+            const options = {unique: true};
+
+            this.collection.createIndex({[field]: 1}, options)
+                .then(resolve)
+                .catch(reject)
+        }))
+        
+        return promise;
     }
 
     insertOne(document){
@@ -42,6 +57,23 @@ class Query {
             }
 
             this.collection.insertOne(document)
+                .then(resolve)
+                .catch(reject)
+
+        })
+
+        return promise;
+    }
+
+    updateOne(filter, docFrag){
+        
+        const promise = new Promise((resolve, reject) => {
+            
+            if(!docFrag){
+                reject(new Error("MISSING_DOCUMENT"))
+            }
+
+            this.collection.updateOne(filter, docFrag)
                 .then(resolve)
                 .catch(reject)
 
