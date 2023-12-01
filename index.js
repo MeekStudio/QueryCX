@@ -98,8 +98,6 @@ class Query {
 
         return promise;
     }
-
-    
     
 }
 
